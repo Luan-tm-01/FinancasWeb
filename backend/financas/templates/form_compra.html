@@ -1,0 +1,7 @@
+<h1>Compra</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form_compra.as_p }}
+  <button type="submit">Salvar</button>
+</form>

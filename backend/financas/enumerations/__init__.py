@@ -1,0 +1,1 @@
+from .tipo_pagamento import *

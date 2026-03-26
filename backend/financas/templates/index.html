@@ -1,0 +1,18 @@
+<p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'pagina_inicial' %}">Página Base</a>
+        {{ user.username }}
+        <a href="{% url 'logout' %}">Sair</a>
+
+    {% else %}
+        {% if request.resolver_match.url_name == 'login' or request.resolver_match.url_name == 'register' %}
+            <a href="{% url 'pagina_inicial' %}">Página Base</a>
+        {% else %}
+            <a href="{% url 'pagina_inicial' %}">Página Base</a>
+            <a href="{% url 'register' %}">Cadastrar-se</a>
+            <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+    {% endif %}
+</p>
+
+{% block content %}{% endblock content%}

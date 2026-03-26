@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name="submit">Cadastrar-se</button>
+
+        <a href="{% url 'login' %}">
+        <button type="button">Já Tenho uma Conta</button>
+        </a>
+
+        <input type="hidden" name="next" value="{% url 'lista_compras' %}">
+    </form>
+
+{% endblock content %}
