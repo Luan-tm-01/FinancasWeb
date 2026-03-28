@@ -1,15 +1,15 @@
 {% extends "index.html" %}
 
 {% block content %}
-  <h1>Compras</h1>
-
-  <a href="{% url 'nova_compra' %}">Adicionar</a>
-  <a href="{% url 'cartao' %}">Novo Cartão</a>
-  <a href="{% url 'lista_recebimentos' %}">Recebimento</a>
+  <h1>Compras: </h1>
 
   <ul>
-    {% for t in transacoes_compras %}
-      <li>{{ t.valor }} - {{ t.data }}</li>
+    {% for compra in transacoes_compras %}
+      <li>
+        <a href="{% url 'editar_compra' compra_id=compra.id %}">R$ {{ compra.valor }} - {{ compra.data }}</a>
+      </li>
     {% endfor %}
   </ul>
-{% endblock content %}
+
+  <a href="{% url 'nova_compra' %}">Adicionar nova Compra</a>
+{% endblock content %}  

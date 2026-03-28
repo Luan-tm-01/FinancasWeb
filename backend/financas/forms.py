@@ -1,17 +1,12 @@
 from django import forms
-from .models import TransacaoCompra, TransacaoRecebimento, Cartao
+from .models import TransacaoCompra, TransacaoRecebimento
 
 class TransacaoCompraForm(forms.ModelForm):
     class Meta:
         model = TransacaoCompra
-        fields = '__all__'
+        exclude = ['usuario']  
 
 class TransacaoRecebimentoForm(forms.ModelForm):
     class Meta:
         model = TransacaoRecebimento
-        fields = '__all__'
-
-class CartaoForm(forms.ModelForm):
-    class Meta:
-        model = Cartao
-        fields = '__all__'
+        exclude = ['usuario']  

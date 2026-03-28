@@ -1,14 +1,15 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h1>Recebimentos</h1>
+  <h1>Recebimentos</h1>
 
-<a href="{% url 'novo_recebimento' %}">Novo Recebimento</a>
-<a href="{% url 'lista_compras' %}">Compras</a>
+  <ul>
+    {% for recebimento in transacoes_recebimentos %}
+      <li>
+        <a href="{% url 'editar_recebimento' recebimento_id=recebimento.id %}">R$ {{ recebimento.valor }} - {{ recebimento.data }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<ul>
-  {% for r in transacoes_recebimentos %}
-    <li>{{ r.valor }} - {{ r.data }}</li>
-  {% endfor %}
-</ul>
+<a href="{% url 'novo_recebimento' %}">Adicionar novo Recebimento</a>
 {% endblock content %}

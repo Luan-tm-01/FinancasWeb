@@ -1,7 +1,9 @@
 <p>
     {% if user.is_authenticated %}
         <a href="{% url 'pagina_inicial' %}">Página Base</a>
-        {{ user.username }}
+        <a href="{% url 'lista_compras' %}">Compras</a>
+        <a href="{% url 'lista_recebimentos'%}">Recebimentos</a>
+        Olá {{ user.username }}, Bem vindo!!
         <a href="{% url 'logout' %}">Sair</a>
 
     {% else %}
